@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import TodoList from './TodoList';
+import Form from './Form';
+
+
 
 export default class App extends React.Component {
   constructor(){
@@ -8,15 +12,19 @@ export default class App extends React.Component {
         {
           name: 'Organize Garage',
           id: 1528817077286,
-          completed: true
+          completed: false
         },
         {
           name: 'Bake Cookies',
           id: 1528817084358,
           completed: false
-        
         },
-        
+        {
+          name: 'Workout',
+          id: 213123123123,
+          completed: true
+        }
+      
       ]
     }
   }
@@ -26,22 +34,8 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>Todo List</h1>
-        <ul>
-          {
-            todos.map(todo => {
-              return(
-                <li>{todo.name} { todo.completed?<span>- completed</span> : <span> </span> }</li>
-              )
-            })
-          }
-        </ul>
-
-        <form>
-          <input />
-          <button>Add</button>
-        </form>
-
-        <button>Clear</button>
+        <TodoList todos={ todos }/>
+        <Form />
       </div>
     )
   }
